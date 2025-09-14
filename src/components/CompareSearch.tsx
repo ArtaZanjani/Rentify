@@ -20,8 +20,8 @@ const CompareSearch = () => {
     <AnimatePresence>
       {(searching && isValidPath) || alwaysShow ? (
         <>
-          <motion.div initial={{ y: 200 }} animate={{ y: 0 }} exit={{ y: 200 }} transition={springTransition} className="fixed h-24 bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent z-[200]" />
-          <motion.div initial={{ y: 200 }} animate={{ y: 0 }} exit={{ y: 200 }} transition={springTransition} className="fixed min-h-19.5 bottom-0 left-0 w-full bg-white z-[200] flex items-center justify-center gap-x-1">
+          <motion.div initial={{ y: 200 }} animate={{ y: 0 }} exit={{ y: 200 }} transition={springTransition} className="fixed h-36 xs:h-24 bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent z-[200]" />
+          <motion.div initial={{ y: 200 }} animate={{ y: 0 }} exit={{ y: 200 }} transition={springTransition} className="fixed min-h-19.5 bottom-0 left-0 w-full bg-white z-[200] flex max-xs:flex-col items-center justify-center gap-2 p-2">
             <button
               onClick={() => {
                 resetAll();
@@ -29,12 +29,12 @@ const CompareSearch = () => {
                   router.push("/dashboard/user");
                 }
               }}
-              className="absolute -top-8.5 border-b-0 left-8 bg-white border rounded-t-xl"
+              className="absolute -top-[33px] border-b-0 left-4 bg-white border rounded-t-xl"
             >
               <Add className="rotate-45 size-8 stroke-black" />
             </button>
 
-            <Button width="w-fit" height="h-12" variant="normal" href={`${pathname.startsWith(pathnameArray[0]) ? "/dashboard/user/wishlist" : pathnameArray[0]}`} onClick={() => toggleSearching(true)}>
+            <Button width="w-fit" className="max-xs:!w-full" height="h-12" variant="normal" href={`${pathname.startsWith(pathnameArray[0]) ? "/dashboard/user/wishlist" : pathnameArray[0]}`} onClick={() => toggleSearching(true)}>
               {pathname.startsWith(pathnameArray[0]) ? (
                 "بازگشت به آگهی‌های ذخیره شده"
               ) : (
@@ -45,21 +45,20 @@ const CompareSearch = () => {
               )}
             </Button>
 
-            <div className={`${pathname.startsWith(pathnameArray[0]) ? "w-73" : "w-39"}`}>
-              <Button
-                width="w-full"
-                height="h-12"
-                variant="fill"
-                disabled={selectedIds.length < 2}
-                href="/dashboard/user/compare"
-                onClick={() => {
-                  toggleSearching(false);
-                  toggleConfirm(true);
-                }}
-              >
-                تأیید
-              </Button>
-            </div>
+            <Button
+              width="w-fit"
+              className="max-xs:!w-full !w-39"
+              height="h-12"
+              variant="fill"
+              disabled={selectedIds.length < 2}
+              href="/dashboard/user/compare"
+              onClick={() => {
+                toggleSearching(false);
+                toggleConfirm(true);
+              }}
+            >
+              تأیید
+            </Button>
           </motion.div>
         </>
       ) : null}
