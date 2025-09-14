@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: process.env.LIARA_URL?.replace(/^https?:\/\//, ""),
+        hostname: "thirsty-mcnulty-4a8oo0sig.storage.c2.liara.space",
         pathname: "/**",
       },
     ],

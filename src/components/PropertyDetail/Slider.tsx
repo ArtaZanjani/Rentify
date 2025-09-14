@@ -51,7 +51,7 @@ const Slider = ({ isLoading, media }: SliderPropsType) => {
           : slides.map((e, index) => (
               <SwiperSlide key={e.key} className={`h-full max-[450px]:!w-full !w-[402px] bg-g9 relative ${index === slides.length - 1 ? "!ml-0" : ""}`}>
                 {e.type === "media" ? (
-                  <Image src={e.src} alt={`slide-${index}`} fill sizes="100%" className="object-cover" priority />
+                  <Image src={`/api/image-proxy?url=${e.src}`} alt={`slide-${index}`} fill sizes="100%" className="object-cover" priority />
                 ) : (
                   <div className="flex items-center justify-center w-full h-full">
                     <ImageIcon className="size-15 stroke-g8" />

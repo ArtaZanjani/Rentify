@@ -105,7 +105,7 @@ const DashboardSideBar = ({ userData, path }: DashboardSideBarPropsType) => {
                   <User className="size-8 stroke-g7" />
                 </div>
               ) : (
-                <Image onError={() => setImgError(true)} src={userData?.logo} alt="پروفایل" className="object-cover" fill sizes="100%" />
+                <Image onError={() => setImgError(true)} src={`/api/image-proxy?url=${userData?.logo}`} alt="پروفایل" className="object-cover" fill sizes="100%" />
               )}
             </div>
             <div className="space-y-1">

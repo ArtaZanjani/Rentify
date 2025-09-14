@@ -153,7 +153,7 @@ const PostedBy = ({ userData, homeId, isLoading: LoadingStatus }: PostedByPropsT
     <>
       <div className="w-full min-[450px]:w-98 h-[272px] min-[450px]:mx-auto bg-white border border-g9 rounded-xl flex flex-col items-center p-6">
         <div className="flex items-center gap-x-3">
-          <div className="relative flex items-center justify-center overflow-hidden rounded-full size-22 bg-g9">{LoadingStatus || imgError || !userData?.logo ? <User className="size-10 stroke-g7" /> : <Image onError={() => setImgError(true)} className="object-cover" src={userData?.logo} alt={`${userData?.name} ${userData?.last_name}`} sizes="100%" fill />}</div>
+          <div className="relative flex items-center justify-center overflow-hidden rounded-full size-22 bg-g9">{LoadingStatus || imgError || !userData?.logo ? <User className="size-10 stroke-g7" /> : <Image onError={() => setImgError(true)} className="object-cover" src={`/api/image-proxy?url=${userData?.logo}`} alt={`${userData?.name} ${userData?.last_name}`} sizes="100%" fill />}</div>
           <div>
             {LoadingStatus ? (
               <>
