@@ -34,6 +34,7 @@
 | Tech          | Description                             |
 | ------------- | --------------------------------------- |
 | Next.js       | Fullstack React framework for SSR & SSG |
+| TypeScript    | Programming language |
 | MongoDB       | NoSQL database                          |
 | Tailwind CSS  | Utility-first CSS framework             |
 | Shadcn UI     | UI component library                    |
