@@ -81,12 +81,12 @@ const Property_Detail = async ({ params }: ParamsProps) => {
   return (
     <>
       <div className="flex flex-col w-full pt-12 bg-white padding-body gap-y-10 pb-14">
-        {result?.user?.role === "ADMIN" && parsedData.status === "pending" && <AdminStatus homeId={parsedData._id} />}
+        {result?.user?.role === "ADMIN" && parsedData.status === "pending" && <AdminStatus homeId={String(parsedData._id)} />}
         {parsedData.images?.length ? <Slider isLoading={false} media={parsedData.images} /> : <Slider isLoading />}
 
         <div className="w-full flex max-[1082px]:flex-col-reverse items-start gap-6">
           <PropertyDetail isLoading={false} parsedData={parsedData} />
-          <PostedBy isLoading={false} userData={parsedData.postedBy} homeId={parsedData._id} />
+          <PostedBy isLoading={false} userData={parsedData.postedBy} homeId={String(parsedData._id)} />
         </div>
       </div>
 

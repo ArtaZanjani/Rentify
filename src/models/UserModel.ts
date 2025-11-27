@@ -1,12 +1,13 @@
-import mongoose, { Document, Model } from "mongoose";
+import mongoose, { Document, Model, Types } from "mongoose";
 import { UserType } from "@/types/types";
 import { ROLES } from "@/utils/countOccurrences";
 import { mongooseDuplicateError } from "@/utils/messages";
 
+
 type UserTypeWithoutId = Omit<UserType, "_id">;
 
 interface UserDocument extends UserTypeWithoutId, Document {
-  _id: string;
+  _id: Types.ObjectId;
 }
 
 const schema = new mongoose.Schema<UserDocument>({

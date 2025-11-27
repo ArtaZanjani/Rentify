@@ -63,7 +63,7 @@ const Agents = async ({ searchParams }: ParamsProps) => {
       <SetSort sort={Array.isArray(sort) ? sort[0] : sort} pathname={`?sort=${agentSortArr[1].value}`} />
       <div className={`w-full grid grid-cols-[repeat(auto-fit,minmax(268,auto))] justify-center ${parsedData.length >= 4 ? "min-[720px]:justify-between" : "min-[720px]:justify-start"} gap-10 mt-7`}>
         {parsedData.map((e) => (
-          <AgentCard key={e._id} {...e} />
+          <AgentCard key={String(e._id)} {...e} />
         ))}
       </div>
 

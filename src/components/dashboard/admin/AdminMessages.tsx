@@ -16,7 +16,7 @@ const AdminMessages = ({ parsedData }: { parsedData: ContactUsTypes[] }) => {
   const [id, setId] = useState<string | null>(null);
   const { refresh } = useRouter();
 
-  const messageFind = parsedData.find((e) => e._id === id);
+  const messageFind = parsedData.find((e) => String(e._id) === id);
 
   const [state, formAction] = useActionState(delleteMessage, {
     message: "",
@@ -57,9 +57,8 @@ const AdminMessages = ({ parsedData }: { parsedData: ContactUsTypes[] }) => {
                 <p className="text-h6">{row.last_name}</p>
               </td>
 
-
               <td className="bg-white px-8 h-24">
-                <Button width="w-fit" height="h-12" variant="fill" onClick={() => setId(row._id)}>
+                <Button width="w-fit" height="h-12" variant="fill" onClick={() => setId(String(row._id))}>
                   دیدن پیام
                 </Button>
               </td>
@@ -84,7 +83,7 @@ const AdminMessages = ({ parsedData }: { parsedData: ContactUsTypes[] }) => {
             <BtnForm label="حذف پیام" check />
           </div>
 
-          <input type="hidden" name="id" value={messageFind?._id} />
+          <input type="hidden" name="id" value={String(messageFind?._id)} />
         </motion.form>
       </Dialog>
     </>

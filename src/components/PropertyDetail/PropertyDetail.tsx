@@ -81,7 +81,7 @@ const PropertyDetail = ({ parsedData, isLoading }: PropertyDetailPropsType) => {
           )}
         </h1>
 
-        {isLoading ? <ActionButtons isLoading /> : parsedData ? <ActionButtons isLoading={false} id={parsedData._id} message={`${parsedData.propertyType} ${parsedData.information.area} متری ${parsedData.information.bedroom} خوابه ${parsedData.city} محله ${parsedData.neighborhood.replace("محله", "")}`} /> : null}
+        {isLoading ? <ActionButtons isLoading /> : parsedData ? <ActionButtons isLoading={false} id={String(parsedData._id)} message={`${parsedData.propertyType} ${parsedData.information.area} متری ${parsedData.information.bedroom} خوابه ${parsedData.city} محله ${parsedData.neighborhood.replace("محله", "")}`} /> : null}
       </div>
 
       <div className="flex max-[550px]:flex-col w-fit items-center justify-start gap-x-5 gap-y-2 mt-2">
@@ -129,7 +129,7 @@ const PropertyDetail = ({ parsedData, isLoading }: PropertyDetailPropsType) => {
           </>
         ) : (
           <>
-            <p className="min-[550px]:text-lg text-g2">شناسه آگهی: {parsedData?._id.replace(/\D/g, "").slice(-4)}</p>
+            <p className="min-[550px]:text-lg text-g2">شناسه آگهی: {String(parsedData?._id).replace(/\D/g, "").slice(-4)}</p>
             <button className="min-[550px]:text-lg text-g2 flex items-center gap-x-1">
               <Flag className="size-4.5 stroke-g2" />
               گزارش

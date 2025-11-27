@@ -17,7 +17,7 @@ const BlogCard = ({ _id, image, title, shortDesciption, createdAt, border = fals
   return (
     <div className="relative">
       {adminPanel.status && (
-        <button type="button" onClick={() => adminPanel.onClick(_id)} className="size-10 p-1.5 z-10 bg-states-error/50 backdrop-blur-2xl rounded-full -top-3 -left-3 absolute">
+        <button type="button" onClick={() => adminPanel.onClick(String(_id))} className="size-10 p-1.5 z-10 bg-states-error/50 backdrop-blur-2xl rounded-full -top-3 -left-3 absolute">
           <Trash className="size-full stroke-white" />
         </button>
       )}

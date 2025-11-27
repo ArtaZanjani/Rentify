@@ -1,5 +1,6 @@
 import { FC, SVGProps } from "react";
 import type { LatLngTuple } from "leaflet";
+import type { Types } from "mongoose";
 
 export type Amenities = {
   elevator: boolean; // آسانسور
@@ -46,7 +47,7 @@ type Information = {
 };
 
 export type HomeType = {
-  _id: string;
+  _id: Types.ObjectId;
   propertyType: "ویلا" | "آپارتمان" | "خانه ویلایی";
   transactionType: "خرید" | "فروش" | "رهن" | "اجاره";
   deposit: number;
@@ -71,7 +72,7 @@ export type HomeType = {
 export type roleTypes = "ADMIN" | "USER" | "OFFICE";
 
 export type UserType = {
-  _id: string;
+  _id: Types.ObjectId;
   name: string;
   last_name: string;
   office_name: string | undefined;
@@ -108,7 +109,7 @@ export type OTPType = {
 };
 
 export type BlogType = {
-  _id: string;
+  _id: Types.ObjectId;
   image: string | undefined;
   title: string;
   shortDesciption: string;
@@ -118,7 +119,7 @@ export type BlogType = {
 };
 
 export type ContactUsTypes = {
-  _id: string;
+  _id: Types.ObjectId;
   name: UserType["name"];
   last_name: UserType["last_name"];
   phone_number: UserType["phone_number"];
@@ -126,7 +127,7 @@ export type ContactUsTypes = {
 };
 
 export type ReservationDateTypes = {
-  _id: string;
+  _id: Types.ObjectId;
   pickedDate: { date: string; clock: string }[];
 };
 

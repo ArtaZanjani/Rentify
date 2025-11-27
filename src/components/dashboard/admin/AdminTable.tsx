@@ -29,7 +29,7 @@ const AdminTable = ({ users }: { users: Pick<UserType, "_id" | "name" | "last_na
   const [hoverValue, setHoverValue] = useState<string | null>(null);
 
   const filtredUser = users.filter((e) => e._id !== user?._id);
-  const userFind = filtredUser.find((e) => e._id === id.id);
+  const userFind = filtredUser.find((e) => String(e._id) === id.id);
 
   const [stateCode, formActionCode] = useActionState(BanUser, {
     message: "",
@@ -80,11 +80,11 @@ const AdminTable = ({ users }: { users: Pick<UserType, "_id" | "name" | "last_na
                 <p className="text-h6">{translateRole[row.role]}</p>
               </td>
               <td className="bg-white px-8 h-24">
-                <button onClick={() => setId({ method: "BAN", id: row._id })} className="border border-states-error1 px-5 py-2 rounded-md hover:bg-states-error1 duration-200 hover:text-white">
+                <button onClick={() => setId({ method: "BAN", id: String(row._id) })} className="border border-states-error1 px-5 py-2 rounded-md hover:bg-states-error1 duration-200 hover:text-white">
                   بن کاربر
                 </button>
 
-                <button onClick={() => setId({ method: "CHANGE_ROLE", id: row._id })} className="border mr-3 border-states-error1 px-5 py-2 rounded-md hover:bg-states-error1 duration-200 hover:text-white">
+                <button onClick={() => setId({ method: "CHANGE_ROLE", id: String(row._id) })} className="border mr-3 border-states-error1 px-5 py-2 rounded-md hover:bg-states-error1 duration-200 hover:text-white">
                   تغییر نقش
                 </button>
               </td>
@@ -132,7 +132,7 @@ const AdminTable = ({ users }: { users: Pick<UserType, "_id" | "name" | "last_na
           {userFind?._id && id?.method && (
             <>
               <input type="hidden" name="method" value={id?.method} />
-              <input type="hidden" name="userId" value={userFind?._id} />
+              <input type="hidden" name="userId" value={String(userFind?._id)} />
 
               {hoverValue && <input type="hidden" name="value" value={hoverValue} />}
             </>

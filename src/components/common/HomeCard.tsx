@@ -65,7 +65,7 @@ const HomeCard = ({ _id, propertyType, city, neighborhood, deposit, rent, images
 
   return (
     <div className="relative w-80 h-89">
-      <Link href={`/property-detail/${String(_id)}`} className={`block rounded-2xl overflow-hidden w-full h-full bg-white ${selectedIds.includes(_id) && searching ? "border-3 border-primary" : border && "border border-g9"}`}>
+      <Link href={`/property-detail/${String(_id)}`} className={`block rounded-2xl overflow-hidden w-full h-full bg-white ${selectedIds.includes(String(_id)) && searching ? "border-3 border-primary" : border && "border border-g9"}`}>
         <div className={`relative ${imgError || !images?.length ? "bg-g9 flex justify-center items-center" : ""} h-54`}>
           {imgError || !images?.length ? (
             <div>
@@ -111,8 +111,8 @@ const HomeCard = ({ _id, propertyType, city, neighborhood, deposit, rent, images
 
       {mounted &&
         (searching ? (
-          <button className={`absolute size-8 flex items-center justify-center rounded-full border top-4 right-4 ${selectedIds.includes(_id) ? "bg-primary border-primary" : "bg-white border-g6"}`} onClick={() => toggleId(_id)}>
-            {selectedIds.includes(_id) && (
+          <button className={`absolute size-8 flex items-center justify-center rounded-full border top-4 right-4 ${selectedIds.includes(String(_id)) ? "bg-primary border-primary" : "bg-white border-g6"}`} onClick={() => toggleId(String(_id))}>
+            {selectedIds.includes(String(_id)) && (
               <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="var(--color-white)" stroke="var(--color-white)" strokeWidth="1">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
               </svg>
@@ -124,8 +124,8 @@ const HomeCard = ({ _id, propertyType, city, neighborhood, deposit, rent, images
             <div className={statusObject[status].className}>{statusObject[status].icon}</div>
           </div>
         ) : (
-          <button aria-label={wishlist.includes(_id) ? "حذف از اگهی های ذخیره شده" : "اضافه به اگهی های ذخیره شده"} className="absolute z-10 flex items-center justify-center rounded-full size-6 bg-g11 top-4 right-4" onClick={() => toggleWishlist(_id)}>
-            <Heart className={`size-4 ${wishlist.includes(_id) ? "fill-states-error1" : "fill-g8"}`} variant="Bold" />
+          <button aria-label={wishlist.includes(String(_id)) ? "حذف از اگهی های ذخیره شده" : "اضافه به اگهی های ذخیره شده"} className="absolute z-10 flex items-center justify-center rounded-full size-6 bg-g11 top-4 right-4" onClick={() => toggleWishlist(String(_id))}>
+            <Heart className={`size-4 ${wishlist.includes(String(_id)) ? "fill-states-error1" : "fill-g8"}`} variant="Bold" />
           </button>
         ))}
     </div>

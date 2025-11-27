@@ -171,7 +171,7 @@ const PersonalInformation = () => {
               <Input key={index} inputClassName={`h-12 w-full ${user?.role === "ADMIN" && "cursor-not-allowed"}`} readOnly={user?.role === "ADMIN"} divClassName={`w-full min-[986px]:w-[261px] ${user?.role === "ADMIN" && "opacity-50"}`} Icon={e.icon} label={e.label} id={e.id} name={e.name} type={e.type} value={e.value} onChange={(i) => (user?.role === "ADMIN" ? null : handleInputChange(inputs, setInputs, e.name, i.target.value, e.type === "tel" ? "just_number" : "any"))} error={e.error} ResetValue={() => (user?.role === "ADMIN" ? null : resetInputValue(inputs, setInputs, e.name))} />
             ))}
 
-            <input type="hidden" name="id" value={user?._id} />
+            <input type="hidden" name="id" value={String(user?._id)} />
           </div>
         </div>
 

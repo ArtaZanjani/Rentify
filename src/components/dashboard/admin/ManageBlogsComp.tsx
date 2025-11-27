@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 
 const ManageBlogsComp = ({ parsedData, parsedLimit, totalBlogsCount }: { parsedData: BlogType[]; parsedLimit: number; totalBlogsCount: number }) => {
   const [id, setId] = useState<string | null>("");
-  const find = parsedData.find((e) => e._id === id);
+  const find = parsedData.find((e) => String(e._id) === id);
   const { refresh } = useRouter();
 
   const [stateCode, formActionCode] = useActionState(removeBlog, {
@@ -38,7 +38,7 @@ const ManageBlogsComp = ({ parsedData, parsedLimit, totalBlogsCount }: { parsedD
     <>
       <div className="grid grid-cols-1 xs:grid-cols-[repeat(auto-fit,minmax(392px,auto))] justify-center min-[1208px]:justify-between md:justify-start gap-6">
         {parsedData.map((e) => (
-          <BlogCard key={e._id} border adminPanel={{ status: true, onClick: setId }} {...e} />
+          <BlogCard key={String(e._id)} border adminPanel={{ status: true, onClick: setId }} {...e} />
         ))}
       </div>
 

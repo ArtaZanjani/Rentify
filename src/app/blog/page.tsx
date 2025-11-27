@@ -29,7 +29,7 @@ const Blog = async ({ searchParams }: ParamsProps) => {
         <>
           <BlogLayout>
             {parsedData.map((e) => (
-              <BlogCard key={e._id} {...e} />
+              <BlogCard key={String(e._id)} {...e} />
             ))}
           </BlogLayout>
           {parsedLimit < blogsLength && <LimitBtn limit={parsedLimit} label="نمایش مقاله های بیشتر" />}

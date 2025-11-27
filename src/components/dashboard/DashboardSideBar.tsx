@@ -85,7 +85,7 @@ const DashboardSideBar = ({ userData, path }: DashboardSideBarPropsType) => {
 
     const formData = new FormData();
 
-    formData.append("id", userData?._id);
+    formData.append("id", String(userData?._id));
 
     await formActionCode(formData);
   };

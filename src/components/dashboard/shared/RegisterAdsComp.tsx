@@ -102,7 +102,7 @@ const RegisterAdsComp = () => {
 
     validImages.forEach((file) => formData.append("images", file));
 
-    formData.append("postedBy", user?._id ?? "");
+    formData.append("postedBy", String(user?._id));
 
     startTransition(() => {
       setStateSend(formData);

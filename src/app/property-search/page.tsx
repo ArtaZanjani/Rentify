@@ -89,7 +89,7 @@ const Rent = async ({ searchParams }: ParamsProps) => {
 
   if (body.onlyAgency === "true") {
     const agencyUsers = await UserModel.find({ role: ROLES[2] }, "-__v -refreshToken").select("_id");
-    agencyIds = agencyUsers.map((u) => u._id);
+    agencyIds = agencyUsers.map((u) => String(u._id));
   }
 
   for (const key in booleanFilters) {
