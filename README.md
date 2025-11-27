@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://renttify.netlify.app">
+  <a href="https://rentify-rose.vercel.app/">
     <img src="./public/images/Logo2.webp" width="200" alt="Auto Rent Logo" />
   </a>
 </div>
@@ -7,7 +7,7 @@
 <h3 align="center">Rentify</h3>
 
 <p align="center">
-  <a href="https://renttify.netlify.app" style="margin: 0 10px;">View Demo</a>
+  <a href="https://rentify-rose.vercel.app" style="margin: 0 10px;">View Demo</a>
 </p>
 
 ## 📸 Preview
