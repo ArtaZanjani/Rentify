@@ -21,22 +21,17 @@ const Home = async () => {
     .limit(8);
   const parsedData: HomeType[] = JSON.parse(JSON.stringify(data));
 
+  const counts = await HomeModel.aggregate([{ $match: { propertyType: { $in: ["ویلا", "آپارتمان", "خانه ویلایی"] } } }, { $group: { _id: "$propertyType", count: { $sum: 1 } } }]);
+
+  const countMap = counts.reduce((acc, item) => {
+    acc[item._id] = item.count;
+    return acc;
+  }, {});
+
   const dataMap = [
-    {
-      img: "villa.webp",
-      title: "ویلا",
-      value: data.filter((e) => e.propertyType === "ویلا").length ?? 0,
-    },
-    {
-      img: "apartment.webp",
-      title: "آپارتمان",
-      value: data.filter((e) => e.propertyType === "آپارتمان").length ?? 0,
-    },
-    {
-      img: "house.webp",
-      title: "خانه ویلایی",
-      value: data.filter((e) => e.propertyType === "خانه ویلایی").length ?? 0,
-    },
+    { img: "villa.webp", title: "ویلا", value: countMap["ویلا"] ?? 0 },
+    { img: "apartment.webp", title: "آپارتمان", value: countMap["آپارتمان"] ?? 0 },
+    { img: "house.webp", title: "خانه ویلایی", value: countMap["خانه ویلایی"] ?? 0 },
   ];
 
   return (
