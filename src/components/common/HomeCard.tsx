@@ -74,7 +74,7 @@ const HomeCard = ({ _id, propertyType, city, neighborhood, deposit, rent, images
               </svg>
             </div>
           ) : (
-            <Image onError={() => setImgError(true)} src={`/api/image-proxy?url=${images[0]}`} alt={`${propertyType} - ${city} - ${neighborhood} - ${area} - ${bedroom}`} fill sizes="100%" className="object-cover" />
+            <Image onError={() => setImgError(true)} src={images[0]} alt={`${propertyType} - ${city} - ${neighborhood} - ${area} - ${bedroom}`} fill sizes="100%" className="object-cover" />
           )}
         </div>
 

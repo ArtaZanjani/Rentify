@@ -15,10 +15,11 @@ const LimitBtn = ({ limit, label }: { limit: number; label: string }) => {
 
     const params = new URLSearchParams(searchParams.toString());
     params.set("limit", String(limit + 4));
+    router.replace(`?${params.toString()}`, { scroll: false });
 
     startTransition(() => {
       router.replace(`?${params.toString()}`, { scroll: false });
-      setTimeout(() => setIsLoading(false), 500);
+      setIsLoading(false);
     });
   };
 

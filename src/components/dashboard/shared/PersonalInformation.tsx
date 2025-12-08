@@ -145,7 +145,7 @@ const PersonalInformation = () => {
       >
         <div className="w-full py-6 bg-white rounded-2xl">
           <div className="flex max-[718px]:flex-col items-center min-[718px]:items-end gap-5 px-6">
-            <div className="size-[123px] rounded-full flex justify-center items-center bg-conic-90 bg-g9 overflow-hidden relative">{previewUrl ? <Image src={previewUrl} alt="پروفایل" priority fill sizes="100%" className="object-cover" /> : !user?.logo || imgError ? <User className="size-13 stroke-g5" /> : <Image onError={() => setImgError(true)} src={`/api/image-proxy?url=${user?.logo}`} alt="پروفایل" priority fill sizes="100%" className="object-cover" />}</div>
+            <div className="size-[123px] rounded-full flex justify-center items-center bg-conic-90 bg-g9 overflow-hidden relative">{previewUrl ? <Image src={previewUrl} alt="پروفایل" priority fill sizes="100%" className="object-cover" /> : !user?.logo || imgError ? <User className="size-13 stroke-g5" /> : <Image onError={() => setImgError(true)} src={user?.logo} alt="پروفایل" priority fill sizes="100%" className="object-cover" />}</div>
             <label htmlFor="file-upload" className="px-6 py-1.5 border rounded-lg border-g8 hover:bg-g8 cursor-pointer">
               تغییر عکس
             </label>
