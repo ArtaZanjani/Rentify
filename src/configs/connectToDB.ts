@@ -6,7 +6,7 @@ const connectToDB = async () => {
       return true;
     }
 
-    await mongoose.connect(process.env.MONGO_DB_URL as string);
+    await mongoose.connect(process.env.MONGODB_URI as string);
   } catch {
     return null;
   }
